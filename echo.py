@@ -1,5 +1,12 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""An enhanced version of the 'echo' cmd line utility"""
+
+__author__ = "Delvric Tezeno help with demo "
+
 import argparse
 import sys
+import subprocess
 
 
 def create_parser():
@@ -13,6 +20,11 @@ def create_parser():
         "-t", "--title", help="convert text to titlecase", action="store_true")
     parser.add_argument("text", help="text to be manipulated")
     return parser
+
+
+def func_no_args(text):
+    output = subprocess.check_output(['python', 'echo.py', text])
+    return output.rstrip()
 
 
 def main(args):
